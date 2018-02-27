@@ -39,9 +39,7 @@ public class Todo extends AppCompatActivity {
         setContentView(R.layout.activity_todo);
         fab = (FloatingActionButton)findViewById(R.id.floatingActionButton);
 
-        todoList = new ArrayList<>();
-        todoList.add(new Entry("amrith","21 Jan"));
-        todoList.add(new Entry("anand","25 Jan"));
+        todoList = new ArrayList<>(Entry.listAll(Entry.class));
 
         listView = (ListView)findViewById(R.id.lv);
         listViewAdapter = new ListViewAdapter(todoList,getApplicationContext());
@@ -101,7 +99,9 @@ public class Todo extends AppCompatActivity {
                 dialog.dismiss();
                 String m_Text = input.getText().toString();
                 String timeText = time.getText().toString();
-                todoList.add(new Entry(m_Text, timeText));
+                Entry newEntry = new Entry(m_Text, timeText);
+                newEntry.save();
+                todoList.add(newEntry);
                 Toast.makeText(getApplicationContext(),m_Text,Toast.LENGTH_SHORT).show();
                 listViewAdapter.notifyDataSetChanged();
             }
@@ -113,8 +113,6 @@ public class Todo extends AppCompatActivity {
                 dialog.cancel();
             }
         });
-
-
         builder.show();
     }
 }
