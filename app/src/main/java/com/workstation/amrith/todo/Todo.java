@@ -18,6 +18,8 @@ import android.widget.ListView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.orm.SugarContext;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
@@ -37,10 +39,10 @@ public class Todo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
+        SugarContext.init(this);
         fab = (FloatingActionButton)findViewById(R.id.floatingActionButton);
 
         todoList = new ArrayList<>(Entry.listAll(Entry.class));
-
         listView = (ListView)findViewById(R.id.lv);
         listViewAdapter = new ListViewAdapter(todoList,getApplicationContext());
         listView.setAdapter(listViewAdapter);
@@ -100,8 +102,8 @@ public class Todo extends AppCompatActivity {
                 String m_Text = input.getText().toString();
                 String timeText = time.getText().toString();
                 Entry newEntry = new Entry(m_Text, timeText);
-                newEntry.save();
                 todoList.add(newEntry);
+                newEntry.save();
                 Toast.makeText(getApplicationContext(),m_Text,Toast.LENGTH_SHORT).show();
                 listViewAdapter.notifyDataSetChanged();
             }

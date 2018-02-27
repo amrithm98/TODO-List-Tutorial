@@ -6,7 +6,7 @@ import com.orm.SugarRecord;
  * Created by amrith on 2/27/18.
  */
 
-public class Entry extends SugarRecord<Entry>
+public class Entry extends SugarRecord
 {
     public String content;
     public String date;
