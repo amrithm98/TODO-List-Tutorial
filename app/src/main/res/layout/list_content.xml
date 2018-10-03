@@ -34,9 +34,10 @@
     <Button
         android:id="@+id/del"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="452dp"
+        android:layout_marginEnd="28dp"
         android:text="Delete"
-        app:layout_constraintBaseline_toBaselineOf="@+id/content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
