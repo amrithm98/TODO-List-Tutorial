@@ -71,7 +71,7 @@ public class ListViewAdapter extends BaseAdapter implements View.OnClickListener
         int pos = (int)view.getTag();
         Entry obj = arrayList.get(pos);
         obj.delete();
-        Snackbar.make(view,"Deleted",Snackbar.LENGTH_SHORT).setAction("OK",null).show();
+        Snackbar.make(view,"Deleted Item",Snackbar.LENGTH_SHORT).setAction("OK",null).show();
         arrayList.remove(pos);
         notifyDataSetChanged();
     }
