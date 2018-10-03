@@ -50,7 +50,7 @@ public class Todo extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                Log.d("Macha","Click Macha");
+                Log.d("Event Happened","Click Happened");
                 Entry ent = todoList.get(i);
                 Snackbar.make(view,ent.date,Snackbar.LENGTH_SHORT).setAction("OK",null).show();
 
