@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                String username = userName.getText().toString();
-                String password = passWord.getText().toString();
+                String username = userName.getText().toString().trim();
+                String password = passWord.getText().toString().trim();
 
                 if(username.equals(""))
                 {
